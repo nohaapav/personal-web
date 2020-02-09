@@ -2,133 +2,59 @@
 
 {% block content %}
 
-<!-- Loader -->
-<div id="loader">
-    <p class="loader-logo"></p>
+{% include "shared/menu.html" %}
+
+<div class="carousel">
+    <input class="carousel-activator" type="radio" id="slider-1" name="activator" checked="checked"/>
+    <input class="carousel-activator" type="radio" id="slider-2" name="activator"/>
+    <input class="carousel-activator" type="radio" id="slider-3" name="activator"/>
+    <input class="carousel-activator" type="radio" id="slider-4" name="activator"/>
+<!--    <div class="carousel-controls">-->
+<!--        <label class="carousel-control carousel-control&#45;&#45;backward" for="slider-4"></label>-->
+<!--        <label class="carousel-control carousel-control&#45;&#45;forward" for="slider-2"></label>-->
+<!--    </div>-->
+<!--    <div class="carousel-controls">-->
+<!--        <label class="carousel-control carousel-control&#45;&#45;backward" for="slider-1"></label>-->
+<!--        <label class="carousel-control carousel-control&#45;&#45;forward" for="slider-3"></label>-->
+<!--    </div>-->
+<!--    <div class="carousel-controls">-->
+<!--        <label class="carousel-control carousel-control&#45;&#45;backward" for="slider-2"></label>-->
+<!--        <label class="carousel-control carousel-control&#45;&#45;forward" for="slider-4"></label>-->
+<!--    </div>-->
+<!--    <div class="carousel-controls">-->
+<!--        <label class="carousel-control carousel-control&#45;&#45;backward" for="slider-3"></label>-->
+<!--        <label class="carousel-control carousel-control&#45;&#45;forward" for="slider-1"></label>-->
+<!--    </div>-->
+    <ul class="carousel-slides">
+        <li class="carousel-slide carousel-slide-active">
+            <div>
+                <h2>Tonga, 2019</h2>
+                <p>Humpback lady fooling around us for almost an hour off the coast of Vava'u</p>
+            </div>
+        </li>
+        <li class="carousel-slide">
+            <div>
+                <h2>Egypt, 2019</h2>
+                <p>Hawksbill turtle having lunch on Elphinstone reef.</p>
+            </div>
+        </li>
+        <li class="carousel-slide">
+            <div>
+                <h2>Maldives, 2019</h2>
+            </div>
+        </li>
+        <li class="carousel-slide">
+            <div>
+                <h2>Fiji, 2019</h2>
+            </div>
+        </li>
+    </ul>
+<!--    <div class="carousel-indicators">-->
+<!--        <label class="carousel-indicator" for="slider-1"></label>-->
+<!--        <label class="carousel-indicator" for="slider-2"></label>-->
+<!--        <label class="carousel-indicator" for="slider-3"></label>-->
+<!--        <label class="carousel-indicator" for="slider-4"></label>-->
+<!--    </div>-->
 </div>
-
-<!-- Navigation -->
-<nav class="nav-bar" id="navigation">
-    <div class="nav-container container">
-        <a href="/" class="nav-brand">
-            <img src="../images/logo.png" class="logo"/>
-        </a>
-        <label for="hamburger" class="nav-toggle">
-            <div class="hamburger hamburger--collapse" id="hamburger-icon">
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
-                </div>
-            </div>
-        </label>
-        <input type="checkbox" id="hamburger"/>
-        <div class="nav-break"></div>
-        <ul class="nav-menu" id="menu">
-            <li><a href="#header" class="nav-menu-item hidden">Home</a></li>
-            <li><a href="#expeditions" class="nav-menu-item">Expeditions</a></li>
-            <li><a href="#about" class="nav-menu-item">About</a></li>
-            <li><a href="#gallery" class="nav-menu-item">Gallery</a></li>
-            <li><a href="#contact" class="nav-menu-item">Contact</a></li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Header -->
-<section id="header" class="scrollspy">
-    <header>
-        <div class="container h-100">
-            <div class="header-container h-100">
-                <div class="my-auto mx-auto">
-                    <div class="row center">
-                        <div class="header-content">
-                            <h4>Next expedition in</h4>
-                        </div>
-                    </div>
-                    <div class="row center">
-                        <div id="timer">
-                            <div class="countdown-row">
-                                <div class="countdown-section">
-                                    <div id="timer-days" class="countdown-amount">00</div>
-                                    <div class="countdown-period">days</div>
-                                </div>
-                                <div class="countdown-section">
-                                    <div id="timer-hr" class="countdown-amount">00</div>
-                                    <div class="countdown-period">hr</div>
-                                </div>
-                                <div class="countdown-section">
-                                    <div id="timer-min" class="countdown-amount">00</div>
-                                    <div class="countdown-period">min</div>
-                                </div>
-                                <div class="countdown-section">
-                                    <div id="timer-sec" class="countdown-amount">00</div>
-                                    <div class="countdown-period">sec</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row center">
-                        <div class="header-content">
-                            <h3>01/03/2020 - 14/03/2020</h3>
-                            <h1>Tiger Beach & Bimini</h1>
-                            <h5>Bahamas</h5>
-                            <p>Greatest shark diving location in the world!</p>
-                            <a href="#about" class="button">More Info</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="header-images my-auto">
-                    <div class="header-images-container">
-                        <img src="../images/1.jpg" class="header-image header-image-1"/>
-                        <img src="../images/2.jpg" class="header-image header-image-2"/>
-                        <img src="../images/3.jpg" class="header-image header-image-3"/>
-                        <img src="../images/4.jpg" class="header-image header-image-4"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-</section>
-
-<section id="contact" class="section scrollspy">
-    <div class="container column center">
-        <h3>CONTACT ME</h3>
-        <p class="subtitle">Et harum quidem rerum facilis est et expedita distinctio.</p>
-        <ul class="address">
-            <li>Tel.: +420 607 773 922</li>
-            <li>Address : Preslova 409/3, Prague, Czech Republic</li>
-            <li>Email : pavol.noha@gmail.com</li>
-        </ul>
-        <form method="post" id="contactform" class="contact-form">
-            <div class="form-row">
-                <div class="form-column-6 form-group">
-                    <label class="title small" for="name">Name</label>
-                    <input type="text" placeholder="Name" name="name" id="name" class="text name required">
-                </div>
-                <div class="form-column-6 form-group">
-                    <label class="title small" for="email">E-mail</label>
-                    <input type="email" placeholder="E-mail" name="email" id="email" class="text email required">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-column-12 form-group">
-                    <label class="title small" for="email">Subject</label>
-                    <input type="text" placeholder="Subject" name="subject" id="subject" class="text subject required">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-column-12 form-group">
-                    <label class="title small" for="message">Type your message</label>
-                    <textarea placeholder="Type your message" name="message" id="message"
-                              class="text area required"></textarea>
-                </div>
-            </div>
-            <input type="submit" value="Submit" class="button button-inverse">
-        </form>
-    </div>
-</section>
-
-<footer>
-
-</footer>
 
 {% endblock %}

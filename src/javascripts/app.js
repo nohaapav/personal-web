@@ -1,5 +1,3 @@
-import scrollSpy from 'simple-scrollspy'
-
 function preloader() {
     Pace.on('done', function () {
     });
@@ -29,65 +27,99 @@ function countdown() {
     }, 1000);
 }
 
-function menuItemClick() {
-    document.getElementById("hamburger").checked = false;
-    document.getElementById('hamburger-icon').classList.remove("is-active");
-}
+function menuHandler() {
+    let hamburger = document.getElementById('hamburger');
+    let hamburger_close = document.getElementById('hamburger-close');
+    let navigation = document.getElementById('navigation');
+    let overlay = document.getElementById('navigation-overlay');
 
-function menuItemTrigger() {
+    function open() {
+        navigation.classList.add("nav-open");
+        hamburger.classList.add("hidden");
+        overlay.classList.add("nav-overlay-active");
+    }
+
+    function close() {
+        navigation.classList.remove("nav-open");
+        hamburger.classList.remove("hidden");
+        overlay.classList.remove("nav-overlay-active");
+    }
+
+    hamburger.addEventListener('click', open);
+    hamburger_close.addEventListener('click', close);
+    overlay.addEventListener('click', close);
+
     document.querySelectorAll('.nav-menu-item').forEach(anchor => {
-        anchor.addEventListener('click', menuItemClick);
+        anchor.addEventListener('click', close);
     });
 }
 
-function hamburgerIcon() {
-    let hamburger = document.getElementById('hamburger');
-    hamburger.addEventListener('change', (event) => {
-        let hamburgerIcon = document.getElementById('hamburger-icon');
-        if (event.target.checked) {
-            hamburgerIcon.classList.add("is-active");
+function carousel() {
+    let activeSlideIndex = 0;
+    let slides = document.getElementsByClassName("carousel-slide");
+    let activators = document.getElementsByClassName("carousel-activator");
+
+    // Initialize slides
+    Array.from(slides).forEach((e, i) => {
+        if (i === 0) {
+            e.style.opacity = "1";
         } else {
-            hamburgerIcon.classList.remove("is-active");
+            e.style.opacity = "0";
         }
     });
-}
 
-function smoothScrolling() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    // Change slides
+    function changeSlide(nextSlideIndex) {
+        let activeSlide = slides[activeSlideIndex];
+        let nextSlide = slides[nextSlideIndex];
 
-            let elementId = this.getAttribute('href').substr(1);
-            let element = document.getElementById(elementId);
-            let elementPosition = element.getBoundingClientRect().top;
+        if (activeSlideIndex === (slides.length - 1) && nextSlideIndex === 0) {
+            for (let i = 1; i < slides.length - 1; i++) {
+                slides[i].style.transition = null;
+                slides[i].style.opacity = "0";
+            }
+            activeSlide.style.opacity = "0";
+        } else if (nextSlideIndex > activeSlideIndex) {
+            nextSlide.style.transition = "opacity 1s ease-in-out";
+            nextSlide.style.opacity = "1";
+        } else {
+            activeSlide.style.transition = "opacity 1s ease-in-out";
+            activeSlide.style.opacity = "0";
+            nextSlide.style.transition = null;
+            nextSlide.style.opacity = "1";
+        }
+        activeSlideIndex = nextSlideIndex;
+    }
 
-            window.scrollTo({
-                top: elementPosition - 72,
-                behavior: "smooth"
-            });
+    document.querySelectorAll('.carousel-activator').forEach((anchor, nextSlideIndex) => {
+        anchor.addEventListener('change', () => {
+            changeSlide(nextSlideIndex);
         });
     });
+
+    let slider = setInterval(() => {
+        let nextSlideIndex;
+        if (activeSlideIndex === 3) {
+            nextSlideIndex = 0;
+        } else {
+            nextSlideIndex = activeSlideIndex + 1
+        }
+        activators[nextSlideIndex].checked = true;
+        changeSlide(nextSlideIndex);
+    }, 9000);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
     preloader();
-    countdown();
-    menuItemTrigger();
-    hamburgerIcon();
-    smoothScrolling();
+    menuHandler();
+    carousel();
 });
 
 window.addEventListener("scroll", function () {
-    let navigation = document.getElementById("navigation");
+    let appbar = document.getElementById("appbar");
     if (window.scrollY === 0) {
-        navigation.classList.remove("nav-scrolled");
+        appbar.classList.remove("nav-scrolled");
     } else {
-        navigation.classList.add("nav-scrolled");
+        appbar.classList.add("nav-scrolled");
     }
 });
-
-window.onload = function () {
-    scrollSpy('#menu', {
-        offset: 72 + 1
-    });
-};
