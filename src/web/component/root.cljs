@@ -3,8 +3,8 @@
             [web.component.menu :as menu]))
 
 (rum/defc Root < rum/static
-  [props child]
-  [(rum/with-key (menu/AppBar props) "appbar")
-   (rum/with-key (menu/Navigation props) "navigation")
-   (rum/with-key (menu/NavigationOverlay props) "navigation-overlay")
-   (rum/with-key (child props) "child")])
+  [r props child]
+  [(rum/with-key (menu/AppBar r props) "appbar")
+   (rum/with-key (menu/Navigation r props) "navigation")
+   (rum/with-key (menu/NavigationOverlay r props) "navigation-overlay")
+   (rum/with-key (child r props) "child")])

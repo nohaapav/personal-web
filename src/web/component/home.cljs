@@ -2,6 +2,6 @@
   (:require [rum.core :as rum]))
 
 (rum/defc Home < rum/static
-  [props]
+  [r props]
   [:div
    "It works"])

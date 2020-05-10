@@ -6,7 +6,8 @@
                  [cljsjs/react "16.8.6-0"]
                  [cljsjs/react-dom "16.8.6-0"]
                  [metosin/reitit "0.3.10"]
-                 [rum "0.11.4"]]
+                 [rum "0.11.4"]
+                 [clj-commons/citrus "3.2.3"]]
   :min-lein-version "2.8.2"
   :plugins [[lein-cljsbuild "1.1.7"]]
   :source-paths ["src"]
