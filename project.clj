@@ -5,19 +5,19 @@
                  [org.clojure/clojurescript "1.10.597"]
                  [cljsjs/react "16.8.6-0"]
                  [cljsjs/react-dom "16.8.6-0"]
+                 [rum "0.11.4" :exclusions [cljsjs/react cljsjs/react-dom]]
                  [metosin/reitit "0.3.10"]
-                 [rum "0.11.4"]
                  [clj-commons/citrus "3.2.3"]]
   :min-lein-version "2.8.2"
   :plugins [[lein-cljsbuild "1.1.7"]]
-  :source-paths ["src"]
+  :source-paths ["src/cljs" "src/js"]
   :clean-targets ^{:protect false} ["resources/public/js/out"
                                     "resources/public/js/app.js"
                                     :target-path]
   :repl-options {:init-ns repl.user}
   :cljsbuild {:builds
               [{:id           "dev"
-                :source-paths ["src"]
+                :source-paths ["src/cljs"]
 
                 ;; The presence of a :figwheel configuration here
                 ;; will cause figwheel to inject the figwheel client
@@ -30,6 +30,15 @@
                                :infer-externs        true
                                :parallel-build       true
                                :source-map-timestamp true
+                               :install-deps         true
+                               :npm-deps             false
+                               :foreign-libs         [{:file           "dist/index.bundle.js"
+                                                       :provides       ["react"
+                                                                        "react-dom"
+                                                                        "react-photo-gallery"]
+                                                       :global-exports {react               React
+                                                                        react-dom           ReactDOM
+                                                                        react-photo-gallery Gallery}}]
 
                                ;; To console.log CLJS data-structures make sure you enable devtools in Chrome
                                ;; https://github.com/binaryage/cljs-devtools
@@ -61,7 +70,7 @@
                                    [cider/piggieback "0.4.1"]]
                     :plugins      [[lein-figwheel "0.5.17"]
                                    [lein-doo "0.1.6"]]
-                    :source-paths ["src" "dev"]
+                    :source-paths ["src/cljs" "dev"]
                     :repl-options {:nrepl-middleware [cider.piggieback/wrap-cljs-repl]}}
              :prod {:prep-tasks  ["cljsbuild" "once" "min"]
                     :omit-source true

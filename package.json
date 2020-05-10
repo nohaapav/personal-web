@@ -1,0 +1,25 @@
+{
+  "name": "personal-web",
+  "version": "1.0",
+  "description": "## License",
+  "main": "webpack.config.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nohaapav/personal-web.git"
+  },
+  "keywords": [],
+  "author": "Pavol Noha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nohaapav/personal-web/issues"
+  },
+  "homepage": "https://github.com/nohaapav/personal-web#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-photo-gallery": "^8.0.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
