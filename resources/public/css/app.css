@@ -1,16 +1,51 @@
-html {
+@charset "utf-8";
 
-}
+/* ----------------------------------
+Style.css / Version:1.0
+    Table of contents
+    01. Google Font
+    02. Variables
+    03. PreLoader
+    04. Reset
+    05. Typography
+    06. Navigation
+    07. Header
+    08. Layout
+    09. Contact section
+---------------------------------- */
 
-/** Theme **/
+/* ----------------------------------
+   01 - Google font
+---------------------------------- */
 
-.light {
+@import url(https://fonts.googleapis.com/css?family=Dosis:200,400,500|Raleway|Inconsolata);
 
-}
+/* ----------------------------------
+   02 - Variables
+---------------------------------- */
 
-.dark {
+@import "base/variables.css";
 
-}
+/* ----------------------------------
+   03 - Reset
+---------------------------------- */
 
-body {
-}
+@import "base/reset.css";
+
+/* ----------------------------------
+   04 - Typography
+---------------------------------- */
+
+@import "base/typography.css";
+
+/* ----------------------------------
+   06 - Navigation
+---------------------------------- */
+
+@import "base/navigation.css";
+
+/* ----------------------------------
+   07 - Layout
+---------------------------------- */
+
+@import "base/layout.css";
