@@ -3,4 +3,5 @@
 
 (rum/defc Home < rum/static
   [props]
-  [:div "It works"])
+  [:div
+   "It works"])

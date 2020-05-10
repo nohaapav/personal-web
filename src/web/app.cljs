@@ -2,6 +2,7 @@
   (:require [cljs.core.async :as async :refer [<! go-loop]]
             [goog.dom :refer [getElement]]
             [web.router :as router]
+            [web.component.root :refer [Root]]
             [web.component.home :refer [Home]]
             [rum.core :as rum]))
 
@@ -17,7 +18,7 @@
         props {:route        route
                :route-params route-params
                :query-params query-params}]
-    (rum/mount (Comp props) root-el)))
+    (rum/mount (Root props Comp) root-el)))
 
 (defn handle-route-change [root-el route-ch]
   (go-loop []
