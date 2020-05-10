@@ -1,0 +1,62 @@
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+
+{% include "shared/menu.html" %}
+
+<header>
+    <div class="container h-100">
+        <div class="header-container h-100">
+            <div class="my-auto mx-auto">
+                <div class="row center">
+                    <div class="header-content">
+                        <h4>Next expedition in</h4>
+                    </div>
+                </div>
+                <div class="row center">
+                    <div id="timer">
+                        <div class="countdown-row">
+                            <div class="countdown-section">
+                                <div id="timer-days" class="countdown-amount">00</div>
+                                <div class="countdown-period">days</div>
+                            </div>
+                            <div class="countdown-section">
+                                <div id="timer-hr" class="countdown-amount">00</div>
+                                <div class="countdown-period">hr</div>
+                            </div>
+                            <div class="countdown-section">
+                                <div id="timer-min" class="countdown-amount">00</div>
+                                <div class="countdown-period">min</div>
+                            </div>
+                            <div class="countdown-section">
+                                <div id="timer-sec" class="countdown-amount">00</div>
+                                <div class="countdown-period">sec</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row center">
+                    <div class="header-content">
+                        <h3>01/03/2020 - 14/03/2020</h3>
+                        <h1>Tiger Beach & Bimini</h1>
+                        <h5>Bahamas</h5>
+                        <p>Greatest shark diving location in the world!</p>
+                        <a href="#about" class="button">More Info</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-images my-auto">
+                <div class="header-images-container">
+                    <img src="../images/PB140279-Edit-Edit.jpg" class="header-image header-image-1"/>
+                    <img src="../images/PB140279-Edit-Edit.jpg" class="header-image header-image-2"/>
+                    <img src="../images/PB140279-Edit-Edit.jpg" class="header-image header-image-3"/>
+                    <img src="../images/PB140279-Edit-Edit.jpg" class="header-image header-image-4"/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+{% endblock %}
