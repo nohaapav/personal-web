@@ -3,9 +3,7 @@
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/clojurescript "1.10.597"]
-                 [cljsjs/react "16.8.6-0"]
-                 [cljsjs/react-dom "16.8.6-0"]
-                 [rum "0.11.4" :exclusions [cljsjs/react cljsjs/react-dom]]
+                 [rum "0.11.4"]
                  [metosin/reitit "0.3.10"]
                  [clj-commons/citrus "3.2.3"]]
   :min-lein-version "2.8.2"
@@ -13,6 +11,7 @@
   :source-paths ["src/cljs" "src/js"]
   :clean-targets ^{:protect false} ["resources/public/js/out"
                                     "resources/public/js/app.js"
+                                    "dist"
                                     :target-path]
   :repl-options {:init-ns repl.user}
   :cljsbuild {:builds
@@ -33,10 +32,14 @@
                                :install-deps         true
                                :npm-deps             false
                                :foreign-libs         [{:file           "dist/index.bundle.js"
-                                                       :provides       ["react"
+                                                       :provides       ["cljsjs.react"
+                                                                        "cljsjs.react.dom"
+                                                                        "react"
                                                                         "react-dom"
                                                                         "react-photo-gallery"]
-                                                       :global-exports {react               React
+                                                       :global-exports {cljsjs.react        React
+                                                                        cljsjs.react.dom    ReactDOM
+                                                                        react               React
                                                                         react-dom           ReactDOM
                                                                         react-photo-gallery Gallery}}]
 
