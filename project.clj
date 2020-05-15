@@ -51,7 +51,7 @@
                ;; production. You can build this with:
                ;; lein cljsbuild once min
                {:id           "min"
-                :source-paths ["src"]
+                :source-paths ["src/cljs"]
                 :compiler     {:main                 web.app
                                :output-to            "resources/public/js/app.js"
                                :output-dir           "target"

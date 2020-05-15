@@ -49,3 +49,21 @@ Style.css / Version:1.0
 ---------------------------------- */
 
 @import "base/layout.css";
+
+/* ----------------------------------
+   08 - Header
+---------------------------------- */
+
+@import "base/header.css";
+
+/** Theme **/
+
+.light {
+    --color-primary: #fff;
+    --font-color: #000;
+}
+
+.dark {
+    --color-primary: #000;
+    --font-color: #fff;
+}

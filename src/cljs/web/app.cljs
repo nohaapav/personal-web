@@ -18,7 +18,8 @@
 (defonce reconciler
          (citrus/reconciler
            {:state       app-state
-            :controllers {:app/menu ctrl/menu-ctrl}}))
+            :controllers {:app/menu  ctrl/menu-ctrl
+                          :app/video ctrl/video-ctrl}}))
 
 (defn render-route [root-el {:keys [app/route app/route-params app/query-params]}]
   (let [Comp (get route->component route)
@@ -41,6 +42,6 @@
     (citrus/broadcast-sync! reconciler :init)
     (router/init! route-ch)))
 
+(set! (-> js/document .-documentElement .-className) "light")
+
 (init)
-
-

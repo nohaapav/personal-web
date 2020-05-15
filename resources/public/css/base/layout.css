@@ -5,27 +5,21 @@
     margin-left: auto;
 }
 
-@media (min-width: 576px) {
-    .container {
-        width: 540px;
-    }
-}
-
 @media (min-width: 768px) {
     .container {
-        width: 720px;
+        width: 750px;
     }
 }
 
 @media (min-width: 992px) {
     .container {
-        width: 960px;
+        width: 970px;
     }
 }
 
 @media (min-width: 1200px) {
     .container {
-        width: 1180px;
+        width: 1170px;
     }
 }
 
@@ -65,8 +59,8 @@ section {
 }
 
 .section {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .hidden {
@@ -75,4 +69,17 @@ section {
 
 .grow {
     flex: 1;
+}
+
+/** Scrolling [Safari, Chrome] **/
+
+body::-webkit-scrollbar {
+    width: 0; /* remove scrollbar space */
+    background: transparent; /* optional: just make scrollbar invisible */
+}
+
+/** Scrolling [FF, IE] **/
+
+body {
+    scrollbar-width: none;
 }
