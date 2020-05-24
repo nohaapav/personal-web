@@ -1,7 +1,6 @@
-(ns web.mixin
-  (:require [citrus.core :as citrus]))
+(ns web.mixin)
 
-(defn resize []
+(defn resize [callback]
   {:did-mount
    (fn [{[r] :rum/args :as state}]
      (.addEventListener
@@ -10,5 +9,15 @@
        (fn []
          (let [width (-> js/window .-innerWidth)
                height (-> js/window .-innerHeight)]
-           (when (> width 992)
-             (citrus/dispatch! r :app/menu :close))))) state)})
+           (callback r width height)))) state)})
+
+(defn scroll [callback]
+  {:did-mount
+   (fn [{[r] :rum/args :as state}]
+     (.addEventListener
+       js/window
+       "scroll"
+       (fn [_]
+         (let [scroll-y (-> js/window .-scrollY)
+               scroll-x (-> js/window .-scrollX)]
+           (callback r scroll-y scroll-x)))) state)})

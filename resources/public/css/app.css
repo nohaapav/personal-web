@@ -17,44 +17,43 @@ Style.css / Version:1.0
 /* ----------------------------------
    01 - Google font
 ---------------------------------- */
-
 @import url(https://fonts.googleapis.com/css?family=Dosis:200,400,500|Raleway|Inconsolata);
 
 /* ----------------------------------
    02 - Variables
 ---------------------------------- */
-
 @import "base/variables.css";
 
 /* ----------------------------------
    03 - Reset
 ---------------------------------- */
-
 @import "base/reset.css";
 
 /* ----------------------------------
    04 - Typography
 ---------------------------------- */
-
 @import "base/typography.css";
 
 /* ----------------------------------
    06 - Navigation
 ---------------------------------- */
-
 @import "base/navigation.css";
 
 /* ----------------------------------
    07 - Layout
 ---------------------------------- */
-
 @import "base/layout.css";
 
 /* ----------------------------------
    08 - Header
 ---------------------------------- */
-
 @import "base/header.css";
+
+/* ----------------------------------
+   09 - Countdown
+---------------------------------- */
+@import "base/countdown.css";
+
 
 /** Theme **/
 
@@ -66,4 +65,53 @@ Style.css / Version:1.0
 .dark {
     --color-primary: #000;
     --font-color: #fff;
+}
+
+/** Gallery **/
+
+.react-photo-gallery--gallery > div {
+    width: calc(100% + 4px);
+}
+
+/** Carousel **/
+
+.carousel-item-padding-10-px {
+    padding: 10px;
+}
+
+/** Events **/
+
+.event {
+    color: #000;
+}
+
+.event-carousel {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .event {
+        padding: 10px;
+    }
+
+    .event-carousel {
+        width: calc(100% + 20px);
+        margin-left: -10px;
+    }
+}
+
+.event-image {
+    background-image: url("../img/bahamas/P3050639.jpeg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-bottom: 75%;
+}
+
+.event-content {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 8px 16px;
+    background-color: #fff;
 }

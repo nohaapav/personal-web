@@ -1,12 +1,27 @@
 (ns web.component.menu
   (:require [web.mixin :as mixin]
+            [web.ui :as ui]
             [citrus.core :as citrus]
             [rum.core :as rum]))
 
+(rum/defc Menu < rum/static
+  [r]
+  [:ul.nav-menu
+   [:li [:a.nav-menu-item {:href ""} "Upcoming"]]
+   [:li [:a.nav-menu-item {:href ""} "Below"]]
+   [:li [:a.nav-menu-item {:href ""} "Shirts"]]
+   [:li [:a.nav-menu-item {:href ""} "About"]]])
+
 (rum/defc AppBar < rum/reactive
+                   (mixin/scroll
+                     (fn [r y _]
+                       (if (zero? y)
+                         (citrus/dispatch! r :app/menu :elevation-off)
+                         (citrus/dispatch! r :app/menu :elevation-on))))
   [r props]
-  (let [{:keys [open]} (rum/react (citrus/subscription r [:app/menu]))]
+  (let [{:keys [open elevation]} (rum/react (citrus/subscription r [:app/menu]))]
     [:div.nav-bar
+     {:class (when elevation "nav-bar-shadow")}
      [:div.nav-container.container
       [:span.nav-brand {:href "/"} "nohaphoto.com"]
       [:div.hamburger.hamburger--collapse
@@ -15,16 +30,13 @@
        [:div.hamburger-box
         [:div.hamburger-inner]]]
       [:div.menu
-       [:ul.nav-menu
-        [:li [:a.nav-menu-item {:href ""} "Upcoming"]]
-        [:li [:a.nav-menu-item {:href ""} "Below"]]
-        [:li [:a.nav-menu-item {:href ""} "Shirts"]]
-        [:li [:a.nav-menu-item {:href ""} "About"]]]]
-
-      ]]))
+       (Menu r)]]]))
 
 (rum/defc Navigation < rum/reactive
-                       (mixin/resize)
+                       (mixin/resize
+                         (fn [r w _]
+                           (when (> w ui/lg-screen-breakpoint)
+                             (citrus/dispatch! r :app/menu :close))))
   [r props]
   (let [{:keys [open]} (rum/react (citrus/subscription r [:app/menu]))]
     [:nav.nav
@@ -35,11 +47,7 @@
        {:onClick #(citrus/dispatch! r :app/menu :close)}
        [:div.hamburger-box
         [:div.hamburger-inner]]]]
-     [:ul.nav-menu
-      [:li [:a.nav-menu-item {:href ""} "Upcoming"]]
-      [:li [:a.nav-menu-item {:href ""} "Below"]]
-      [:li [:a.nav-menu-item {:href ""} "Shirts"]]
-      [:li [:a.nav-menu-item {:href ""} "About"]]]
+     (Menu r)
      [:div.grow]
      [:div.nav-footer
       [:div.nav-footer-copyright

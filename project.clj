@@ -36,12 +36,14 @@
                                                                         "cljsjs.react.dom"
                                                                         "react"
                                                                         "react-dom"
-                                                                        "react-photo-gallery"]
-                                                       :global-exports {cljsjs.react        React
-                                                                        cljsjs.react.dom    ReactDOM
-                                                                        react               React
-                                                                        react-dom           ReactDOM
-                                                                        react-photo-gallery Gallery}}]
+                                                                        "react-photo-gallery"
+                                                                        "react-multi-carousel"]
+                                                       :global-exports {cljsjs.react         React
+                                                                        cljsjs.react.dom     ReactDOM
+                                                                        react                React
+                                                                        react-dom            ReactDOM
+                                                                        react-photo-gallery  Gallery
+                                                                        react-multi-carousel Carousel}}]
 
                                ;; To console.log CLJS data-structures make sure you enable devtools in Chrome
                                ;; https://github.com/binaryage/cljs-devtools
