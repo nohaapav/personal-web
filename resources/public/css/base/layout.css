@@ -54,13 +54,33 @@
     margin-left: auto;
 }
 
-section {
-    margin-top: var(--navbar-height);
+header {
+    padding-top: var(--navbar-height);
+}
+
+main {
+    min-height: calc(100vh - var(--navbar-height));
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background: #262626;
+    padding: 50px 0 20px 0;
+    color: #666;
 }
 
 .section {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 100px;
+}
+
+.section > h2 {
+    padding-bottom: 20px;
+}
+
+.section-info {
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
 .hidden {

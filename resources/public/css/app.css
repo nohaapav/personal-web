@@ -17,7 +17,7 @@ Style.css / Version:1.0
 /* ----------------------------------
    01 - Google font
 ---------------------------------- */
-@import url(https://fonts.googleapis.com/css?family=Dosis:200,400,500|Raleway|Inconsolata);
+@import url(http://allfont.net/allfont.css?fonts=europe-normal);
 
 /* ----------------------------------
    02 - Variables
@@ -45,14 +45,9 @@ Style.css / Version:1.0
 @import "base/layout.css";
 
 /* ----------------------------------
-   08 - Header
+   08 - Intro
 ---------------------------------- */
-@import "base/header.css";
-
-/* ----------------------------------
-   09 - Countdown
----------------------------------- */
-@import "base/countdown.css";
+@import "base/intro.css";
 
 
 /** Theme **/
@@ -60,6 +55,9 @@ Style.css / Version:1.0
 .light {
     --color-primary: #fff;
     --font-color: #000;
+    --secondary-color: #919191;
+    --link-color: #8cc7ee;
+    --link-color-select: #98c0da;
 }
 
 .dark {
@@ -68,6 +66,11 @@ Style.css / Version:1.0
 }
 
 /** Gallery **/
+
+.react-photo-gallery--gallery {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
 .react-photo-gallery--gallery > div {
     width: calc(100% + 4px);
@@ -101,17 +104,30 @@ Style.css / Version:1.0
 }
 
 .event-image {
-    background-image: url("../img/bahamas/P3050639.jpeg");
-    background-size: contain;
-    background-repeat: no-repeat;
     width: 100%;
-    padding-bottom: 75%;
 }
 
 .event-content {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     bottom: 0;
     left: 0;
     padding: 8px 16px;
     background-color: #fff;
+}
+
+.event-detail {
+    text-align: center;
+}
+
+.event-location {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.event-date {
+    color: var(--link-color-select);
+    font-weight: 600;
+    font-size: 15px;
 }

@@ -7,4 +7,13 @@
   [(rum/with-key (menu/AppBar r props) "appbar")
    (rum/with-key (menu/Navigation r props) "navigation")
    (rum/with-key (menu/NavigationOverlay r props) "navigation-overlay")
-   (rum/with-key (child r props) (name route))])
+   (rum/with-key (child r props) (name route))]
+
+
+  ;(if (= :index route)
+  ;  (child r props)
+  ;  [(rum/with-key (menu/AppBar r props) "appbar")
+  ;   (rum/with-key (menu/Navigation r props) "navigation")
+  ;   (rum/with-key (menu/NavigationOverlay r props) "navigation-overlay")
+  ;   (rum/with-key (child r props) (name route))])
+  )

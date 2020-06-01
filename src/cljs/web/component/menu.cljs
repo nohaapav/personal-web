@@ -7,10 +7,9 @@
 (rum/defc Menu < rum/static
   [r]
   [:ul.nav-menu
-   [:li [:a.nav-menu-item {:href ""} "Upcoming"]]
-   [:li [:a.nav-menu-item {:href ""} "Below"]]
-   [:li [:a.nav-menu-item {:href ""} "Shirts"]]
-   [:li [:a.nav-menu-item {:href ""} "About"]]])
+   [:li [:a {:href ""} "Upcoming"]]
+   [:li [:a {:href ""} "Gallery"]]
+   [:li [:a {:href ""} "About"]]])
 
 (rum/defc AppBar < rum/reactive
                    (mixin/scroll
@@ -21,7 +20,7 @@
   [r props]
   (let [{:keys [open elevation]} (rum/react (citrus/subscription r [:app/menu]))]
     [:div.nav-bar
-     {:class (when elevation "nav-bar-shadow")}
+     {:class (when elevation "nav-scrolled")}
      [:div.nav-container.container
       [:span.nav-brand {:href "/"} "nohaphoto.com"]
       [:div.hamburger.hamburger--collapse

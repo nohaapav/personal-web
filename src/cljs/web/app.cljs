@@ -4,7 +4,7 @@
             [web.router :as router]
             [web.controller :as ctrl]
             [web.component.root :refer [Root]]
-            [web.component.home :refer [Home]]
+            [web.pages.home :refer [Home]]
             [citrus.core :as citrus]
             [rum.core :as rum]))
 
