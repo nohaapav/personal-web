@@ -45,7 +45,12 @@ Style.css / Version:1.0
 @import "base/layout.css";
 
 /* ----------------------------------
-   08 - Intro
+   08 - Carousel
+---------------------------------- */
+@import "base/carousel.css";
+
+/* ----------------------------------
+   09 - Intro
 ---------------------------------- */
 @import "base/intro.css";
 
@@ -56,6 +61,8 @@ Style.css / Version:1.0
     --color-primary: #fff;
     --font-color: #000;
     --secondary-color: #919191;
+    /*--link-color: #0031a3;*/
+
     --link-color: #8cc7ee;
     --link-color-select: #98c0da;
 }

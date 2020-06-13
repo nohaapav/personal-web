@@ -20,16 +20,23 @@
   [r props]
   (let [{:keys [open elevation]} (rum/react (citrus/subscription r [:app/menu]))]
     [:div.nav-bar
-     {:class (when elevation "nav-scrolled")}
+     {:class (if elevation "nav-scrolled" "nav-top")}
      [:div.nav-container.container
+      {:class (when (false? elevation) "nav-container-stacked")}
       [:span.nav-brand {:href "/"} "nohaphoto.com"]
+
+      ;[:img {:src    "../../img/signature2.png"
+      ;       :height 72}]
+
       [:div.hamburger.hamburger--collapse
        {:class   (when open "hidden")
         :onClick #(citrus/dispatch! r :app/menu :open)}
        [:div.hamburger-box
         [:div.hamburger-inner]]]
       [:div.menu
-       (Menu r)]]]))
+       (if elevation
+         (Menu r)
+         (Menu r))]]]))
 
 (rum/defc Navigation < rum/reactive
                        (mixin/resize
@@ -41,13 +48,12 @@
     [:nav.nav
      {:role  "navigation"
       :class (when open "nav-open")}
-     [:div.nav-header
+     [:div.nav-header.nav-container.container.nav-container-stacked
       [:div.hamburger.hamburger--collapse.is-active
        {:onClick #(citrus/dispatch! r :app/menu :close)}
        [:div.hamburger-box
         [:div.hamburger-inner]]]]
      (Menu r)
-     [:div.grow]
      [:div.nav-footer
       [:div.nav-footer-copyright
        "All rights reserved"
